@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import cors from 'cors'
-import MyRouter from "./Routes";
+import morgan from 'morgan'
 
 export default class Application {
   private app;
@@ -18,6 +18,8 @@ export default class Application {
     this.app.use(express.json())
     //URLEncode
     this.app.use(express.urlencoded({extended: false}))
+    //Morgan
+    this.app.use(morgan('dev'))
   }
 
   runRoute(router: Router){
