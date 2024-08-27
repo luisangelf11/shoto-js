@@ -1,5 +1,5 @@
 {
-  "name": "shoto",
+  "name": "shoto-js",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -7,8 +7,8 @@
     "dev": "tsc-watch --onSuccess \"node dist/index.js \"",
     "build": "tsc"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["javascript", "typescript", "API REST"],
+  "author": "Luis Angel",
   "license": "ISC",
   "description": "",
   "devDependencies": {
