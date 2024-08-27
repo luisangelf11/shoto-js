@@ -1,0 +1,7 @@
+# .npmignore
+
+# Ignorar todo
+*
+
+# Exceptuar la carpeta dist
+!dist/
