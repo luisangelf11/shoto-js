@@ -5,7 +5,7 @@ import morgan from 'morgan'
 export default class Application {
   private app;
   //Constructor
-  constructor(private port: number, private hostCore: string = '') {
+  constructor(private port: number, private urlEncoded: boolean = false, private hostCore: string = '') {
     this.port = port;
     this.app = express();
     //Cors
@@ -17,7 +17,7 @@ export default class Application {
     //JSON
     this.app.use(express.json())
     //URLEncode
-    this.app.use(express.urlencoded({extended: true}))
+    this.app.use(express.urlencoded({extended: this.urlEncoded}))
     //Morgan
     this.app.use(morgan('dev'))
   }

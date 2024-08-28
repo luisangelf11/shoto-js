@@ -63,12 +63,20 @@ export default class Exceptions {
         })
     }
 
-    static TemplateError(res: Response, message: string, titleCode: string, code: number, success: boolean){
-      res.status(code).json({
-        message,
-        code: titleCode,
-        statusCode: code,
-        success
+    static TemplateError(obj: TemplateParams){
+      obj.response.status(obj.code).json({
+        message: obj.message,
+        code: obj.titleCode,
+        statusCode: obj.code,
+        success: obj.success
       })
   }
+}
+
+interface TemplateParams {
+  response: Response
+  message: string
+  titleCode: string
+  code: number,
+  success: boolean
 }

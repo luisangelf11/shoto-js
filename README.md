@@ -10,20 +10,38 @@ Prisma documentation: https://www.prisma.io/docs/getting-started
 
 > This is an example project Shoto-JS with prisma: https://github.com/luisangelf11/app-shoto-example
 
-## Instalation
+## Installation
 
-Execute this command in the console for install
+Execute this command in the console for install `Shoto-JS` in a project already exist
 
 ```
 npm i shoto-js
 ```
 
+But if you need create a new project with `Shoto-JS`, you can install the `Shoto-CLI` with this command.
+
+```
+npm i -g cli-shoto
+```
+
+For call the CLI open a terminal and execute:
+
+```
+shoto-js
+```
+
+The CLI allow us:
+- Create a new project
+- Create the routers files
+- Create the services files
+
 ## Create a server
 
-For create a new server with Shoto-JS you need import the Application module. Application receive two params when generate the new object in it's constructor.
+For create a new server with Shoto-JS you need import the Application module. Application receive 3 params when generate the new object in it's constructor.
 | Params| Type| Description| Default|
 | ------ | ------ |----- | ----- |
 |port| number | the port that use the server| required|
+|urlEncoded| boolean| active a middleware that only parses urlencoded bodie| false |
 |hostCore|string| host enabled for cors| all server |
 
 ### Example
@@ -100,7 +118,7 @@ This functions need 3 params: request, response and next. Next is optional.
 | ---- | ---- | ---- |
 |req | Request (from express)| true|
 |res | Response (from express)| true|
-|next| function void | true |
+|next| function void | false |
 
 ### Example
 
@@ -111,7 +129,7 @@ export function getHome(req, res) {
     try {
         res.json({ message: 'Say hello' })
     } catch (error) {
-        Exceptions.InternalServerError(res, error.message)
+       return Exceptions.InternalServerError(res, error.message)
     }
 }
 
@@ -119,7 +137,7 @@ export function postHome(req, res) {
     try {
         res.json({ message: 'This is a post' })
     } catch (error) {
-        Exceptions.InternalServerError(res, error.message)
+       return Exceptions.InternalServerError(res, error.message)
     }
 }
 
@@ -127,7 +145,7 @@ export function putHome(req, res) {
     try {
         res.json({ message: 'This is a put' })
     } catch (error) {
-        Exceptions.InternalServerError(res, error.message)
+       return Exceptions.InternalServerError(res, error.message)
     }
 }
 
@@ -135,7 +153,7 @@ export function deleteHome(req, res) {
     try {
         res.json({ message: 'This is a delete' })
     } catch (error) {
-        Exceptions.InternalServerError(res, error.message)
+      return Exceptions.InternalServerError(res, error.message)
     }
 }
 ```
@@ -153,9 +171,9 @@ Shoto-JS handles exceptions with an exceptions class. Exeptions it's a class wit
 |InternalServerError | Response: (from express) | message (optional) | 500|
 |BadGateway | Response: (from express) | message (optional) | 502|
 
-Another method for generate custom exceptions is TemplateError.
+Another method for generate custom exceptions is TemplateError. This method receive a object as param, the object need this props:
 
-|Params| Type|
+|Props| Type|
 | -----| ---- |
 |res | Response (from express)|
 |message| string|
@@ -172,7 +190,7 @@ export function deleteHome(req, res) {
     try {
         res.json({ message: 'This is a delete' })
     } catch (error) {
-        Exceptions.InternalServerError(res, error.message)
+        return Exceptions.InternalServerError(res, error.message)
     }
 }
 ```

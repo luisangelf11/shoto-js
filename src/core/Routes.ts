@@ -3,6 +3,12 @@ import { NextFunction, Request, Response, Router } from "express";
 export default class MyRouter {
   public router;
   constructor(private pathName: string = "/") {
+    if(this.pathName !== '/'){
+      if (!/^\/.*/.test(pathName))
+        throw new Error(
+          `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint 🙀`
+        );
+    }
     this.pathName = pathName;
     this.router = Router();
   }
@@ -19,7 +25,7 @@ export default class MyRouter {
         //validate a format endpoint
         if (!/^\/.*/.test(endpoint))
           throw new Error(
-            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint`
+            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint 🙀`
           );
       } else params = true;
     }
@@ -40,7 +46,7 @@ export default class MyRouter {
         //validate a format endpoint
         if (!/^\/.*/.test(endpoint))
           throw new Error(
-            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint`
+            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint 🙀`
           );
       } else params = true;
     }
@@ -61,7 +67,7 @@ export default class MyRouter {
         //validate a format endpoint
         if (!/^\/.*/.test(endpoint))
           throw new Error(
-            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint`
+            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint 🙀`
           );
       } else params = true;
     }
@@ -82,7 +88,7 @@ export default class MyRouter {
         //validate a format endpoint
         if (!/^\/.*/.test(endpoint))
           throw new Error(
-            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint`
+            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint 🙀`
           );
       } else params = true;
     }
@@ -103,7 +109,7 @@ export default class MyRouter {
         //validate a format endpoint
         if (!/^\/.*/.test(endpoint))
           throw new Error(
-            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint`
+            `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint 🙀`
           );
       } else params = true;
     }
