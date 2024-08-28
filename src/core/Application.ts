@@ -17,7 +17,7 @@ export default class Application {
     //JSON
     this.app.use(express.json())
     //URLEncode
-    this.app.use(express.urlencoded({extended: false}))
+    this.app.use(express.urlencoded({extended: true}))
     //Morgan
     this.app.use(morgan('dev'))
   }

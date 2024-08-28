@@ -1,9 +1,11 @@
 import Application from "./core/Application";
 import MyRouter from "./core/Routes";
-import  Exeptions  from "./errors/Exeptions";
+import UploadFile from "./core/UploadFile";
+import  Exceptions  from "./errors/Exceptions";
 
 export {
     Application,
     MyRouter,
-    Exeptions
+    Exceptions,
+    UploadFile
 }

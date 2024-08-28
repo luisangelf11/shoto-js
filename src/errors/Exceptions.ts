@@ -1,6 +1,6 @@
 import { Response } from "express";
 
-export default class Exeptions {
+export default class Exceptions {
     constructor(){}
 
     static NotFound(res: Response, message: string = ""){
@@ -9,7 +9,7 @@ export default class Exeptions {
             message: text,
             code: 'Not Found😿',
             statusCode: 404,
-            sucess: false
+            success: false
           })
     }
 
@@ -19,7 +19,7 @@ export default class Exeptions {
           message: text,
           code: 'Unauthorized😿',
           statusCode: 401,
-          sucess: false
+          success: false
         })
     }
 
@@ -29,7 +29,7 @@ export default class Exeptions {
           message: text,
           code: 'Forbidden😿',
           statusCode: 403,
-          sucess: false
+          success: false
         })
     }
 
@@ -39,7 +39,7 @@ export default class Exeptions {
         message: text,
         code: 'Bad Request😿',
         statusCode: 400,
-        sucess: false
+        success: false
       })
     }
 
@@ -49,7 +49,7 @@ export default class Exeptions {
           message: text,
           code: 'Internal Server Error😿',
           statusCode: 500,
-          sucess: false
+          success: false
         })
     }
 
@@ -59,16 +59,16 @@ export default class Exeptions {
           message: text,
           code: 'Bad Gateway😿',
           statusCode: 502,
-          sucess: false
+          success: false
         })
     }
 
-    static TemplateError(res: Response, message: string, titleCode: string){
-      res.status(502).json({
+    static TemplateError(res: Response, message: string, titleCode: string, code: number, success: boolean){
+      res.status(code).json({
         message,
         code: titleCode,
-        statusCode: 502,
-        sucess: false
+        statusCode: code,
+        success
       })
   }
 }

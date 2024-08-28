@@ -1,13 +1,17 @@
 {
   "name": "shoto-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "dev": "tsc-watch --onSuccess \"node dist/index.js \"",
     "build": "tsc"
   },
-  "keywords": ["javascript", "typescript", "API REST"],
+  "keywords": [
+    "javascript",
+    "typescript",
+    "API REST"
+  ],
   "author": "Luis Angel",
   "license": "ISC",
   "description": "",
@@ -15,6 +19,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.9",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.5.0",
     "tsc-watch": "^6.2.0",
     "typescript": "^5.5.4"
@@ -22,7 +27,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1"
   },
   "files": [
     "dist"
