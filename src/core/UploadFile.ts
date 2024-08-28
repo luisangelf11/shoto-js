@@ -29,13 +29,13 @@ export default class UploadFile{
         });
     }
 
-    uploadRoute(endpoint: string, nameInput: string, yourHost: string, folderName: string){
+    uploadRoute(endpoint: string, inputName: string, yourHost: string, folderName: string){
          //validate a format endpoint
          if (!/^\/.*/.test(endpoint))
             throw new Error(
               `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint`
             );
-        this.uploadRoutes.post(endpoint, this.upload.single(nameInput),(req, res) => {
+        this.uploadRoutes.post(endpoint, this.upload.single(inputName),(req, res) => {
             if (!req.file)
                 return res.status(400).json({ "message": 'Please, select a file' });
             res.json({ "urlImage": `${yourHost}/${folderName}/${req.file.filename}`});
