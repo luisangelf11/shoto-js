@@ -3,7 +3,7 @@ import { NextFunction, Request, Response, Router } from "express";
 export default class MyRouter {
   public router;
   constructor(private pathName: string = "/") {
-    if(this.pathName !== '/'){
+    if (this.pathName !== "/") {
       if (!/^\/.*/.test(pathName))
         throw new Error(
           `The endpoint has a syntaxt error. The format endpoint is: /nameEnpoint 🙀`
@@ -51,8 +51,8 @@ export default class MyRouter {
       } else params = true;
     }
     return this.pathName !== "/"
-      ? this.router.post(`${this.pathName}${endpoint}`, cb)
-      : this.router.post(`${params ? endpoint : this.pathName}`, cb);
+        ? this.router.post(`${this.pathName}${endpoint}`, cb)
+        : this.router.post(`${params ? endpoint : this.pathName}`, cb);
   }
 
   //PUT FUNCTION

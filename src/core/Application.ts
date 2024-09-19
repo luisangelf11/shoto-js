@@ -26,6 +26,10 @@ export default class Application {
     this.app.use(router)
   }
 
+  getPort(){
+    return this.port;
+  }
+
   listen() {
     this.app.listen(this.port)
     console.log(`😸 Server running on port`, this.port)
