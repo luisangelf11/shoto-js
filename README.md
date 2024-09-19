@@ -110,6 +110,27 @@ app.listen()
 ```
 > The runRoute method is use to call a route object and it's endpoints
 
+## Middlewares
+
+You can implement middlewares in your endpoints using a simple sintax in the VERBS HTTP methods of the MyRoute instance class. 
+
+> The middleware param is optional
+
+```
+const loggerMiddleware = (req: Request, res: Response, next: NextFunction) => {
+    console.log(`${req.method} request to ${req.url}`);
+    next(); 
+  };
+
+ const serviceFunction = (req: Request, res: Response)=>{
+    res.json({message: 'Hello Shoto😻!'})
+}
+
+myRoute.GET('/',serviceFunction , loggerMiddleware)
+```
+
+The middleware function need three params: Request, Response and NextFunction from Express JS.
+
 ## Server Functions
 
 This functions need 3 params: request, response and next. Next is optional.
@@ -255,6 +276,34 @@ app.runRoute(home.router) //Home router is the end router for call
 //Run server
 app.listen()
 ```
+
+## My Password
+
+My password it's a class from Shoto-Js that allows us to generate and validate passwords.
+
+|Methods| Description|
+|----|----|
+|generatePassword| This method generate a new password with a good security. The method receive a param for the length password. The length must be 8 or more.|
+|validatePasswordSecurity| This method validate a password and return a state password|
+
+### Examples
+
+```
+import {MyPassword} from 'shoto-js'
+
+const password = MyPassword.generatePassword(); //return a password with a length of 8 characters
+
+const statusPassword = MyPassword.validatePasswordSecurity('examplepassword') //return a UNSAFE status
+
+```
+
+### Status validation
+
+|Status name| Type|
+| -------| ------|
+|UNSAFE| string |
+|SAFE| string |
+|VERY_SAFE| string |
 
 ## License
 

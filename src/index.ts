@@ -12,14 +12,3 @@ export {
     MyPassword
 }
 
-const myRoute = new MyRouter()
-
-const app = new Application(3000)
-
-myRoute.GET('/', (req, res)=>{
-    res.json({message: 'Hola'})
-})
-app.runRoute(myRoute.router)
-
-app.listen()
-
